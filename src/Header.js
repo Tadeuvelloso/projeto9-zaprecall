@@ -1,17 +1,16 @@
 import logo from "./img/logo.png"
 import styled from "styled-components";
 
-export default function Header (){
-    return(
+export default function Header() {
+    return (
         <Headers>
-        <img src={logo} alt="tralala" />
-        ZapRecall
-      </Headers>
+            <img src={logo} />
+            ZapRecall
+        </Headers>
     )
 }
 
 const Headers = styled.div`
-
   position: fixed;
   height: 80px;
   top: 0;
@@ -26,5 +25,4 @@ const Headers = styled.div`
   font-family: "Righteous";
   z-index: 1;
   background-color: var(--cor-fundo);
-
 `;

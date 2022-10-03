@@ -1,19 +1,13 @@
 import styled from "styled-components"
 import FlashCard from "./FlashCard";
 
-
-
-export default function Main() {
+export default function Main(props) {
+  const {dados, clicados, setClicados, visto} = props
+  
   return (
     <Deck>
-      <FlashCard/>
-      <FlashCard/> 
-      <FlashCard/> 
-      <FlashCard/> 
-      <FlashCard/> 
-      <FlashCard/>  
+      {dados.map((d, i) => <FlashCard key={i} num={i} dados={d} clicados={clicados} setClicados={setClicados} visto={visto}/>)}
     </Deck>
-
   )
 }
 

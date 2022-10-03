@@ -1,14 +1,23 @@
+import { useState } from "react"
 import styled from "styled-components"
 
-export default function Footer() {
+export default function Footer(props) {
+  const {clicados, visto, setVisto} = props
+  const [contador, setContador] = useState(0);
+
+  function check (){
+    let arrayVistos = [...clicados]
+    setVisto(arrayVistos)
+  }
+  
   return (
     <Footers>
       <Botoes>
-        <Erro>Não Lembrei</Erro>
-        <Quase>Quase não lembrei</Quase>
-        <Zap>Zap!</Zap>
+        <Erro onClick={() => check()}>Não Lembrei</Erro>
+        <Quase onClick={() => check() }>Quase não lembrei</Quase>
+        <Zap onClick={() => check() }>Zap!</Zap>
       </Botoes>
-      <Pontos>0/4 CONCLUÍDOS</Pontos>
+      <Pontos>{contador}/8 CONCLUÍDOS</Pontos>
     </Footers>
   )
 }
@@ -56,13 +65,13 @@ border: none;
 
 `
 const Erro = styled(Button)`
-  background-color: var(--cor-quase-nao-lembrei);
+  background-color: var(--cor-nao-lembrei);
 `
 const Quase = styled(Button)`
-  background-color: var(--cor-zap);
+  background-color: var(--cor-quase-nao-lembrei);
 `
 const Zap = styled(Button)`
-  background-color: var(--cor-nao-lembrei);
+  background-color: var(--cor-zap);
 `
 const Pontos = styled.div`
 width: 250px;
